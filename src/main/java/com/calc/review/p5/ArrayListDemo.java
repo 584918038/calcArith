@@ -15,6 +15,10 @@ public class ArrayListDemo {
         // 1. 无初始化容量
         ArrayList<Integer> arrays = new ArrayList<>();
 
+        arrays.add(1);
+        arrays.add(2);
+        arrays.add(3);
+
         // 2. 指定初始化容量
         ArrayList<Integer> arrays1 = new ArrayList<>(5);
     }

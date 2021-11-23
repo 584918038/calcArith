@@ -34,7 +34,7 @@ public class Question1 {
      * @param target
      * @return
      */
-    public int[] twoSum(int[] nums, int target) {
+    public int[] twoSum1(int[] nums, int target) {
 
         int[] result = new int[2];
         Map<Integer, Integer> localMap = new HashMap<>();
@@ -54,9 +54,72 @@ public class Question1 {
         return result;
     }
 
+    /**
+     * 失败的原因是无序！
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] twoSum2(int[] nums, int target) {
+
+        int leftIndex = 0;
+        int rightIndex = nums.length - 1;
+
+        while (leftIndex < rightIndex) {
+
+            int sum = nums[leftIndex] + nums[rightIndex];
+
+            if (sum == target) {
+                int[] arr = new int[2];
+                arr[0] = leftIndex;
+                arr[1] = rightIndex;
+                return arr;
+            }
+
+            if (sum > target) {
+
+                rightIndex --;
+            }else {
+                leftIndex ++;
+            }
+        }
+        return null;
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+
+        Map<Integer,Integer> storeMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i ++) {
+
+            int preFindValue = target - nums[i];
+
+            if (!storeMap.isEmpty() && null !=storeMap.get(preFindValue)) {
+
+                int[] arr = new int[2];
+                arr[0] = storeMap.get(preFindValue);
+                arr[1] = i;
+                return arr;
+            }else {
+                storeMap.put(nums[i],i);
+            }
+        }
+        return null;
+    }
+
 
     public static void main(String[] args) {
 
+        int[] array = new int[]{3,2,4};
+        int target = 6;
 
+        Question1 q = new Question1();
+
+        int[] ints = q.twoSum(array, target);
+
+        for (int i = 0; i < ints.length; i ++) {
+
+            System.out.println(ints[i]);
+        }
     }
 }

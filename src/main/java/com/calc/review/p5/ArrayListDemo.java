@@ -13,13 +13,19 @@ public class ArrayListDemo {
         // ArrayList创建方式
 
         // 1. 无初始化容量
-        ArrayList<Integer> arrays = new ArrayList<>();
+//        ArrayList<Integer> arrays = new ArrayList<>();
+//
+//        arrays.add(1);
+//        arrays.add(2);
+//        arrays.add(3);
+//
+//        // 2. 指定初始化容量
+//        ArrayList<Integer> arrays1 = new ArrayList<>(5);
 
-        arrays.add(1);
-        arrays.add(2);
-        arrays.add(3);
+        String str = "hello";
+        String str2 = " hello";
 
-        // 2. 指定初始化容量
-        ArrayList<Integer> arrays1 = new ArrayList<>(5);
+        System.out.println(str2);
+        System.out.println(str2.trim());
     }
 }
